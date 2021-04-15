@@ -22,7 +22,7 @@ function App() {
       ...inputs,
       [name]:value
     });
-  };
+  };asdfasfd
 
   const [users, setUsers] = useState([
     {
