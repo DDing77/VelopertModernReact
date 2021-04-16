@@ -16,13 +16,13 @@ function App() {
 
   const { username, email } = inputs;
 
-  const onChange = e => {
+  const onChange = (e) => {
     const { name, value } = e.target;
     setInputs({
       ...inputs,
       [name]:value
     });
-  };asdfasfd
+  };
 
   const [users, setUsers] = useState([
     {
@@ -60,6 +60,12 @@ function App() {
     nextId.current += 1;
   };
 
+  const onRemove = (id) => {
+    //user.id가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
+    // = user.id가 id 인 것을 제거함
+    setUsers(users.filter(user => (user.id !== id)));
+  };
+
   return (
     <Wrapper>
       <Hello name="react" color="red" isSpecial={true}/>
@@ -73,11 +79,9 @@ function App() {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList users={users} />
+      <UserList users={users} onRemove={onRemove} />
     </Wrapper>
-    //adfafd
-  
   )
 }
-// dfadsf
+
 export default App;
