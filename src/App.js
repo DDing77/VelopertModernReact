@@ -78,6 +78,7 @@ function App() {
 
   return (
     <Wrapper>
+      인덱스 화면
       <Hello name="react" color="red" isSpecial={true}/>
       <Hello color="pink" />
       <Counter/>
