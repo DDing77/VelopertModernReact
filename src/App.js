@@ -78,7 +78,7 @@ function App() {
 
   return (
     <Wrapper>
-      인덱스 화면
+      인덱스 화면, 잔디 심기
       <Hello name="react" color="red" isSpecial={true}/>
       <Hello color="pink" />
       <Counter/>
