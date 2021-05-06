@@ -20,7 +20,7 @@ function App() {
     username: '',
     email: ''
   });
-
+  //추가
   const { username, email } = inputs;
 
   const onChange = (e) => {
