@@ -21,6 +21,7 @@ function App() {
     email: ''
   });
   //추가
+  //추가2
   const { username, email } = inputs;
 
   const onChange = (e) => {
