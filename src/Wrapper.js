@@ -1,5 +1,6 @@
 
 function Wrapper( {children}) {
+    console.log(children)
     const style = {
         border: '2px solid black',
         padding: '16px',
