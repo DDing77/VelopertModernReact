@@ -20,21 +20,24 @@ function App() {
   };
 
 
-  const [users, setUsers ] = useState([
+  const [users, setUsers] = useState([
     {
       id: 1,
       username: 'velopert',
-      email: 'public.velopert@gmail.com'
+      email: 'public.velopert@gmail.com',
+      active: true
     },
     {
       id: 2,
       username: 'tester',
-      email: 'tester@example.com'
+      email: 'tester@example.com',
+      active: true
     },
     {
       id: 3,
       username: 'liz',
-      email: 'liz@example.com'
+      email: 'liz@example.com',
+      active: true
     }
   ]);
 
@@ -43,9 +46,9 @@ function App() {
     const user = {
       id: nextId.current,
       username,
-      email
+      email,
     };
-    setUsers([...users,user]);
+    setUsers([...users, user]);
 
     setInputs({
       username: '',
@@ -60,6 +63,14 @@ function App() {
     nextId.current -= 1;
   };
 
+  const onToggle = (id) => {
+    setUsers(
+      users.map(user =>
+        user.id === id ? { ...user, active: !user.active} : user
+      )
+    );
+  };
+
   console.log(nextId.current);
   console.log(users.length);
   return (
@@ -70,7 +81,11 @@ function App() {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList users={users} onRemove={onRemove}/>;
+      <UserList
+        users={users}
+        onRemove={onRemove}
+        onToggle={onToggle}
+      />
     </>
   );
 }
