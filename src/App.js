@@ -38,7 +38,7 @@ function App() {
     }
   ]);
 
-  const nextId = useRef(4);
+  const nextId = useRef(users.length + 1);
   const onCreate = () => {
     const user = {
       id: nextId.current,
@@ -55,6 +55,11 @@ function App() {
     nextId.current += 1;
   };
 
+  const onRemove = (id) => {
+    setUsers(users.filter(user => user.id !== id));
+    nextId.current -= 1;
+  };
+
   console.log(nextId.current);
   console.log(users.length);
   return (
@@ -65,7 +70,7 @@ function App() {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList users={users} />;
+      <UserList users={users} onRemove={onRemove}/>;
     </>
   );
 }
